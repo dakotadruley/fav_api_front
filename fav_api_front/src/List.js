@@ -6,7 +6,9 @@ export default class List extends Component {
             <div>
                 {
                     this.props.recipes.map(recipe => <div className="recipeDiv">
-                        {recipe.title}
+                       <p className='recipeTitle'> {recipe.title} </p>
+                       <p> {recipe.href} </p>
+                       <p> {recipe.thumbnail} </p>
                     </div>)
                 }
             </div>

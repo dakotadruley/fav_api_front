@@ -1,1 +1,26 @@
+body {
+    background-image: url(../src/assets/linedpaper.png);
+    font-family: monospace;
+}
 
+h1 {
+    margin: 20px;
+    color:  rgb(207, 74, 40);
+}
+
+.recipeTitle {
+    font-weight: bolder;
+}
+
+.searchDiv {
+    margin: 20px;
+}
+
+.searchInput {
+  
+}
+
+.searchButton {
+    margin: 10px;
+    color:rgb(207, 74, 40);
+}

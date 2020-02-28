@@ -8,23 +8,28 @@ export default class Search extends Component {
         input: '',
     }
 
-    handleSearch = async () => {
-        const data = await request.get(`http://www.recipepuppy.com/api/?i=${this.state.input}&p=1`)
+    handleSearch = async (e) => {
+        e.preventDefault();
 
-        const dataObject = JSON.parse(data.text);
+        const data = await request.get(`https://still-river-60288.herokuapp.com/api/recipes?search=${this.state.input}`
+        )
 
         this.setState({
-            recipes: dataObject.results,
+            recipes: data.body,
         });
     }
 
     render() {
         return (
-            <div>
-                <input value={this.state.input} onChange={(e) => this.setState({ input: e.target.value })} />
-                <button onClick={this.handleSearch}>Search</button>
+            <div className='searchDiv'>
+                <form onSubmit={this.handleSearch}>
+                <input className='searchInput' value={this.state.input} onChange={(e) => this.setState({ input: e.target.value })} />
+                <button className='searchButton' onClick={this.handleSearch}>Search</button>
+                </form>
                 <List recipes={this.state.recipes} />
             </div>
         )
     }
 }
+
+// if you wrap in a form you can hit enter on search
